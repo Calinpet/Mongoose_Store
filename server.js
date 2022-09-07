@@ -4,6 +4,9 @@ const app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
 const methodOverride = require("method-override")
+const Product = require('./models/products');
+
+
 
 // DATA CONFIGURATIAN
 mongoose.connect(process.env.DATABASE_URL, {
@@ -24,6 +27,22 @@ app.use(express.urlencoded({ extended: true }));
 
 /// Remember INDUCES (index, new, delete, update, create, edit, show) to help organize your routes and avoid any conflicts.
 
+//INDEX
+
+//NEW
+
+//DELETE
+
+//UPDATE
+
+//CREATE
+app.post('/products', (req, res)=>{
+    res.send('receveid');
+});
+
+//EDIT
+
+//SHOW
 
 // LISTENER
 const PORT = process.env.PORT;
