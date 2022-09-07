@@ -1,11 +1,10 @@
 // Dependencies
 const express = require("express");
 const app = express();
-require("dotenv").config();
 const mongoose = require("mongoose");
-const methodOverride = require("method-override")
+const methodOverride = require("method-override");
 const Product = require('./models/products');
-
+require("dotenv").config();
 
 
 // DATA CONFIGURATIAN
@@ -26,6 +25,13 @@ db.on("disconnected", () => console.log("mongo disconnected"));
 app.use(express.urlencoded({ extended: true }));
 
 /// Remember INDUCES (index, new, delete, update, create, edit, show) to help organize your routes and avoid any conflicts.
+//SEEDS
+const storeSeeds = require('./models/storeSeeds')
+app.get('/products/storeSeeds', (req, res)=>{
+  Product.create(storeSeeds, (error, allProducts)=>{
+    res.redirect('/products');
+  });
+});
 
 //INDEX
 app.get('/products', (req, res)=>{
@@ -54,16 +60,21 @@ app.post('/products', (req, res)=>{
 });
 
 //EDIT
+app.get("/products", (req, res)=> {
+  req.render(
+    "edit.ejs"
+  )
+})
 
 
 //SHOW
 app.get('/products/:id', (req, res)=> {
-Products.finById(req.params.id, (error, foundProduct)=>{
+Product.findById(req.params.id, (error, foundProduct)=>{
     res.render('show.ejs', {
-      product: foundProduct
-    })
-  })
-})
+      product: foundProduct,
+    });
+  });
+});
 
 // LISTENER
 const PORT = process.env.PORT;

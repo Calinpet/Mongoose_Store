@@ -8,10 +8,11 @@
 </head>
 <body>
   <nav>
-    <a href="products"></a>
+    <a href="/products">Back to index page</a>
   </nav>
-  <h1><%=product.description %></h1>
-  <img src=<%= product.img; %><br>
+  Product: <%= product.name %>
+  Description: <%= product.description %> <br>
+  <img src=<%= product.img %><br>
   Price: <%= product.price %><br />
   Quantity: <%= product.qty %>
 </body>

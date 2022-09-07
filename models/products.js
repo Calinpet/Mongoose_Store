@@ -8,6 +8,6 @@ const productSchema = new mongoose.Schema({
   qty: {type: Number, required: true }, 
 });
 
-const Product = mongoose.model('Book', productSchema);
+const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
