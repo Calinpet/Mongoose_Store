@@ -29,7 +29,11 @@ app.use(express.urlencoded({ extended: true }));
 
 //INDEX
 
+
 //NEW
+app.get('/products/new', (req, res)=>{
+  res.send('new');
+});
 
 //DELETE
 
@@ -37,7 +41,9 @@ app.use(express.urlencoded({ extended: true }));
 
 //CREATE
 app.post('/products', (req, res)=>{
-    res.send('receveid');
+    Product.create(req.body, (error, createProduct)=>{
+      res.redirect('/products');
+    });
 });
 
 //EDIT
