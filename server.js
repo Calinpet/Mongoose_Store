@@ -28,11 +28,18 @@ app.use(express.urlencoded({ extended: true }));
 /// Remember INDUCES (index, new, delete, update, create, edit, show) to help organize your routes and avoid any conflicts.
 
 //INDEX
+app.get('/products', (req, res)=>{
+  Product.find({}, (error, allProducts)=>{
+    res.render("index.ejs", {
+      products: allProducts,
+    });
+  });
+});
 
 
 //NEW
 app.get('/products/new', (req, res)=>{
-  res.send('new');
+  res.render('new.ejs');
 });
 
 //DELETE
@@ -48,7 +55,15 @@ app.post('/products', (req, res)=>{
 
 //EDIT
 
+
 //SHOW
+app.get('/products/:id', (req, res)=> {
+Products.finById(req.params.id, (error, foundProduct)=>{
+    res.render('show.ejs', {
+      product: foundProduct
+    })
+  })
+})
 
 // LISTENER
 const PORT = process.env.PORT;
