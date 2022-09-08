@@ -23,6 +23,8 @@ db.on("disconnected", () => console.log("mongo disconnected"));
 //MIDDLEWARE
 // Body parser middleware: it creates req.body
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"))
+app.use(express.static('public'))
 
 /// Remember INDUCES (index, new, delete, update, create, edit, show) to help organize your routes and avoid any conflicts.
 //SEEDS
@@ -49,8 +51,25 @@ app.get('/products/new', (req, res)=>{
 });
 
 //DELETE
+app.delete("/products/:id", (req, res)=>{
+  Product.findByIdAndRemove(req.params.id, (err,data)=>{
+    res.redirect("/products")
+  });
+});
 
 //UPDATE
+app.put("/products/:id", (req, res)=>{
+  Product.findByIdAndUpdate(
+    req.params.id, 
+    req. body,
+    {
+      new: true,
+    },
+    (error, updatedProduct)=> {
+      res.redirect(`/products/${req.params.id}`)
+    }
+    )
+})
 
 //CREATE
 app.post('/products', (req, res)=>{

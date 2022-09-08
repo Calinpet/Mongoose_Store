@@ -17,5 +17,11 @@ module.exports = [
     img: 'https://imgur.com/ptWDPO1.png',
     price: 7000,
     qty: 1
+  }, {
+    name: 'Bins',
+    description: 'A stack of colorful bins for your beans and bones.',
+    img: 'https://imgur.com/ptWDPO1.png',
+    price: 7000,
+    qty: 1
   }
 ]
