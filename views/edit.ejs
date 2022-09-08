@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" class="style">
   <title>Product List</title>
 </head>
 <body>
@@ -11,12 +14,11 @@
   <form action="/products/<%=product._id; %>?_method=PUT" method="POST">
       Name: <input type="text" name="name" value="<%=product.name%>"><br> 
       Description: <input type="text" name="description" value="<%=product.description%>"><br>
-      Img: <input type="file" name="img" value="<%=product.img%>"><br>
+      Img: <input type="text" name="img" value="<%=product.img%>"><br>
       Price: <input type="text" name="price" value="<%=product.price%>"><br>
       Qty: <input type="text" name="qty" value="<%=product.qty%>"><br>
      <input type="submit" name="" id="Add New Product">
   </form>
   <a href="/products">Return to Index</a>
-
 </body>
 </html>

@@ -1,0 +1,21 @@
+img {
+  max-width: 400px;
+  max-height: 400px;
+}
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+form {
+  display:inline;
+  margin-right: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+body {
+  text-align: center;
+  background-color: aliceblue;
+}

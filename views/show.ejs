@@ -4,16 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" class="style">
   <title>Document</title>
 </head>
 <body>
-  <nav>
-    <a href="/products">Back to index page</a>
-  </nav>
   Product: <%= product.name %>
   Description: <%= product.description %> <br>
-  <img src=<%= product.img %><br>
-  Price: <%= product.price %><br />
-  Quantity: <%= product.qty %>
+  <img src="<%= product.img %>"><br>
+  <p class="price">Price: <%= product.price %></p><br/>
+  <p class="qty">Quantity: <%= product.qty %></p>
+  <a href="/products">Back to index page</a> <br>
+  <a href="/products/<%=product.id%>/edit">Edit Product</a>
 </body>
 </html>
